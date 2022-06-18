@@ -6,5 +6,7 @@ $headers = @{
 }
 
 $res = Invoke-RestMethod -Method 'GET' -URI $url -Headers $headers
-$res
+$results = $res | Get-Member -Name "results"
+
+foreach ($page in $results) { $page }
 
